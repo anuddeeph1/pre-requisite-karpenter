@@ -1,0 +1,22 @@
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  requirements:
+    - key: topology.kubernetes.io/zone
+      operator: In
+      values: [us-west-1a, us-west-1b, us-west-1c] # Zones
+    - key: karpenter.sh/capacity-type
+      operator: In
+      values: ["spot"]
+  limits:
+    resources:
+      cpu: 1000
+  provider:
+    instanceProfile: KarpenterNodeInstanceProfile-duke-karp
+    subnetSelector:
+      karpenter.sh/discovery: duke-karp
+    securityGroupSelector:
+      karpenter.sh/discovery: duke-karp
+  ttlSecondsAfterEmpty: 30
