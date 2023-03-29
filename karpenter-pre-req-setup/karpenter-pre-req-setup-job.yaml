@@ -25,7 +25,7 @@ spec:
         image: amazon/aws-cli:latest
         env:
           - name: CLUSTER_NAME
-            value: "duke-karp"
+            value: "karp-duke"
         command:
           - /bin/sh
           - -c
