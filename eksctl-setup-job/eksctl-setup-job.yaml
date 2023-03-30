@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name:  aws-node
+  name:  karpenter-pre-req
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name:  kube-system
+  name:  karpenter
 ---
 apiVersion: batch/v1
 kind: Job
@@ -19,7 +19,7 @@ spec:
       labels:
         app: karpenter-setup-eksctl-job
     spec:
-      serviceAccountName: aws-node
+      serviceAccountName: karpenter-pre-req
       containers:
       - name: karpenter-setup-eksctl-job
         image: chatwork/eksctl:latest
