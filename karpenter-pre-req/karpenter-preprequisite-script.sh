@@ -14,7 +14,7 @@ tagging-resources(){
     aws ec2 create-tags --resources $CLUSTERSECURITYGROUP_IDS --tags Key="karpenter.sh/discovery",Value=$CLUSTER_NAME
     echo "----- SecurityGroups are tagged -----"
     
-    aws eks tag-resource --resource-arn $TAG_EKS --tags Key="karpenter.sh/discovery",Value=$CLUSTER_NAME
+    aws eks tag-resource --resource-arn $TAG_EKS --tags "karpenter.sh/discovery"=$CLUSTER_NAME
     echo "----- EKS Cluster is tagged -----"
 }
 
