@@ -27,6 +27,7 @@ KarpenterController-IAM-Role(){
 if [[ $# != 2 ]]; then
   echo "Provide Cluster Name and Account ID as arguments";
 else
+  sleep 5m;
   update-awsauth-cm;
   KarpenterController-IAM-Role;
 fi
