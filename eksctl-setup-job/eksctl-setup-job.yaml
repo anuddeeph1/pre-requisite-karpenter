@@ -25,7 +25,7 @@ spec:
         image: chatwork/eksctl:latest
         env:
           - name: CLUSTER_NAME
-            value: "karp-duke"
+            value: "karpenter-cluster"
           - name: ACCOUNT_ID
             value: "844333597536"
         command:
